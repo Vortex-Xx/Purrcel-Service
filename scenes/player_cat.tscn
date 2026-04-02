@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ddxy5kekuulhi"]
 
 [ext_resource type="Texture2D" uid="uid://56lp1lsw32ks" path="res://assets/Cat Sprite Sheet.png" id="1_ufweu"]
+[ext_resource type="Script" uid="uid://j8af0rk5vvec" path="res://scripts/player_cat.gd" id="1_vkel5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vkel5"]
 atlas = ExtResource("1_ufweu")
@@ -42,14 +43,15 @@ animations = [{
 radius = 4.0
 
 [node name="PlayerCat" type="CharacterBody2D" unique_id=1042833716]
+script = ExtResource("1_vkel5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1620089306]
 position = Vector2(-1, -12)
 sprite_frames = SubResource("SpriteFrames_h7v4t")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.43235475
+frame_progress = 0.70698994
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D" unique_id=790137617]
-position = Vector2(1, 7)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=790137617]
+position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_67m3y")
