@@ -3240,6 +3240,7 @@ tile_map_data = PackedByteArray("AAAAAAEAAAAfABAAAAAAAAIAAAAfABEAAAABAAEAAAAgABA
 tile_set = SubResource("TileSet_0tnpc")
 
 [node name="PlayerCat" parent="." unique_id=1042833716 instance=ExtResource("1_uwrxv")]
+z_index = 2
 position = Vector2(-139, 110)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1643363330]
