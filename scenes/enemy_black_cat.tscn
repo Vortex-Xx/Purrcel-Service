@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://b2busl0ue22p"]
+
+[ext_resource type="Script" uid="uid://dqcfr3xgpdo0g" path="res://scripts/enemy_black_cat.gd" id="1_faoiw"]
+[ext_resource type="Texture2D" uid="uid://chvxau3812x32" path="res://assets/sprites/Pet Cats Pack/Cat-2/Cat-2-Run.png" id="2_dsw7g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7424r"]
+atlas = ExtResource("2_dsw7g")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmydd"]
+atlas = ExtResource("2_dsw7g")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18sq2"]
+atlas = ExtResource("2_dsw7g")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4vy6"]
+atlas = ExtResource("2_dsw7g")
+region = Rect2(150, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdpej"]
+atlas = ExtResource("2_dsw7g")
+region = Rect2(200, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ttfo"]
+atlas = ExtResource("2_dsw7g")
+region = Rect2(250, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpo76"]
+atlas = ExtResource("2_dsw7g")
+region = Rect2(300, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_thck8"]
+atlas = ExtResource("2_dsw7g")
+region = Rect2(350, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sh74p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7424r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wmydd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18sq2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4vy6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdpej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ttfo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpo76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_thck8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gxido"]
+size = Vector2(11, 9)
+
+[node name="EnemyBlackCat" type="CharacterBody2D" unique_id=1908608855]
+script = ExtResource("1_faoiw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1737878831]
+sprite_frames = SubResource("SpriteFrames_sh74p")
+autoplay = "default"
+frame = 6
+frame_progress = 0.8697431
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=249328728]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_gxido")
