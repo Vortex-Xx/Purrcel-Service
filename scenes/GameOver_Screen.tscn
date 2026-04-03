@@ -1,8 +1,9 @@
-[gd_scene format=3 uid="uid://crqmqpidhlyb0"]
+[gd_scene format=3 uid="uid://u8dmbkujq33c"]
 
-[ext_resource type="Script" uid="uid://c36s58oxc3iaq" path="res://scenes/game_over_screen.gd" id="1_fmyhy"]
+[ext_resource type="Script" uid="uid://c36s58oxc3iaq" path="res://scripts/game_over_screen.gd" id="1_fmyhy"]
 
 [node name="GameOverScreen" type="CanvasLayer" unique_id=549403668]
+process_mode = 3
 script = ExtResource("1_fmyhy")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1319566098]
@@ -10,6 +11,7 @@ z_index = 10
 offset_right = 1147.0
 offset_bottom = 644.0
 size_flags_horizontal = 8
+mouse_filter = 2
 color = Color(1, 1, 1, 0.09019608)
 
 [node name="Label" type="Label" parent="ColorRect" unique_id=1961380963]
@@ -25,6 +27,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="Button" type="Button" parent="ColorRect" unique_id=1758261567]
+process_mode = 3
 z_index = 11
 layout_mode = 1
 anchors_preset = 8
@@ -40,4 +43,4 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Play again"
 
-[connection signal="pressed" from="ColorRect/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ColorRect/Button" to="." method="_on_restart_button_pressed"]
