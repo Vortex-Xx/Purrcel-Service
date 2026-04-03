@@ -23,3 +23,11 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
+func die():
+	# Instead of running it immediately, we 'defer' it
+	# This avoids the physics conflict error
+	call_deferred("_reload_scene")
+
+func _reload_scene():
+	get_tree().reload_current_scene()
