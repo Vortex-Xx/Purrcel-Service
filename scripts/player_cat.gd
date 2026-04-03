@@ -18,13 +18,20 @@ func _physics_process(_delta: float) -> void:
 	# 3. Get input direction (-1, 0, or 1)
 	var direction := Input.get_axis("ui_left", "ui_right")
 	
-	# 4. Apply movement
-	if direction:
+	# 4. Apply movement AND Animations
+	if direction != 0:
 		velocity.x = direction * SPEED
-		# Optional: Flip the sprite based on movement
-		# $AnimatedSprite2D.flip_h = (direction == -1)
+		
+		# Play the 'run' animation you created
+		$AnimatedSprite2D.play("run")
+		
+		# Flip the sprite based on direction (True if -1, False if 1)
+		$AnimatedSprite2D.flip_h = (direction < 0)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+		# Play the 'idle' animation when standing still
+		$AnimatedSprite2D.play("idle")
 
 	move_and_slide()
 
