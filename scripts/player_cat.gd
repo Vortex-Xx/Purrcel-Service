@@ -1,33 +1,25 @@
 extends CharacterBody2D
 
+# Preload the UI scene you just created
+const GAME_OVER_SCENE = preload("res://scenes/GameOver_screen.tscn")
 
 const SPEED = 120.0
 const JUMP_VELOCITY = -250.0
 
-
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+	# ... your existing movement code ...
 	move_and_slide()
 	
 func die():
-	# Instead of running it immediately, we 'defer' it
-	# This avoids the physics conflict error
-	call_deferred("_reload_scene")
+	# Call a function to show the UI
+	call_deferred("_show_game_over")
 
-func _reload_scene():
-	get_tree().reload_current_scene()
+func _show_game_over():
+	# 1. Create the UI instance
+	var game_over = GAME_OVER_SCENE.instantiate()
+	# 2. Add it to the main tree (the current scene)
+	get_tree().root.add_child(game_over)
+	
+	# 3. Optional: Pause the game movement so the cat stops moving
+	# You'll need to set the UI node's Process Mode to "Always" for the button to work
+	get_tree().paused = true

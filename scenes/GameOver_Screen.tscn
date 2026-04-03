@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://crqmqpidhlyb0"]
+
+[ext_resource type="Script" uid="uid://c36s58oxc3iaq" path="res://scenes/game_over_screen.gd" id="1_fmyhy"]
+
+[node name="GameOverScreen" type="CanvasLayer" unique_id=549403668]
+script = ExtResource("1_fmyhy")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1319566098]
+z_index = 10
+offset_right = 1147.0
+offset_bottom = 644.0
+size_flags_horizontal = 8
+color = Color(1, 1, 1, 0.09019608)
+
+[node name="Label" type="Label" parent="ColorRect" unique_id=1961380963]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "GAME OVER!"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Button" type="Button" parent="ColorRect" unique_id=1758261567]
+z_index = 11
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.5
+offset_top = 23.0
+offset_right = 45.5
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play again"
+
+[connection signal="pressed" from="ColorRect/Button" to="." method="_on_button_pressed"]
