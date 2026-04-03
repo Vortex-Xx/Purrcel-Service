@@ -56,3 +56,7 @@ func _show_game_over():
 	
 	# 4. Pause the game so the cat and enemies stop moving
 	get_tree().paused = true
+
+
+func _on_timer_timeout() -> void:
+	pass # Replace with function body.

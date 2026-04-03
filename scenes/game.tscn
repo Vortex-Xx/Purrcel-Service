@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ddxy5kekuulhi" path="res://scenes/player_cat.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://cgfq1u7pq04of" path="res://assets/sprites/Tilemap/tilemap.png" id="2_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://bxaw365yat7kx" path="res://assets/sprites/Tilemap/tilemap_packed.png" id="3_lbhrr"]
+[ext_resource type="Script" uid="uid://cd1dohq1dhy25" path="res://scripts/enemy_spawnner.gd" id="4_iywne"]
 [ext_resource type="PackedScene" uid="uid://b2busl0ue22p" path="res://scenes/enemy_black_cat.tscn" id="4_lbhrr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iywne"]
@@ -3249,6 +3250,15 @@ position = Vector2(0, 0.765)
 scale = Vector2(20.35, 20.35)
 zoom = Vector2(2.41, 2.41)
 
+[node name="EnemySpawnner" type="Node2D" parent="Camera2D" unique_id=2003118687]
+position = Vector2(21.27764, 5.023833)
+scale = Vector2(0.049140047, 0.049140047)
+script = ExtResource("4_iywne")
+
+[node name="Timer" type="Timer" parent="Camera2D/EnemySpawnner" unique_id=1292284805]
+wait_time = 2.0
+autostart = true
+
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1509176861]
 position = Vector2(-140, 14)
 
@@ -3257,3 +3267,5 @@ shape = SubResource("WorldBoundaryShape2D_uwrxv")
 
 [node name="EnemyBlackCat" parent="." unique_id=1908608855 instance=ExtResource("4_lbhrr")]
 position = Vector2(228, 105)
+
+[connection signal="timeout" from="Camera2D/EnemySpawnner/Timer" to="Camera2D/EnemySpawnner" method="_on_timer_timeout"]
