@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://c36s58oxc3iaq" path="res://scripts/game_over_screen.gd" id="1_fmyhy"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_fmyhy"]
+font_size = 30
+
 [node name="GameOverScreen" type="CanvasLayer" unique_id=549403668]
 process_mode = 3
 script = ExtResource("1_fmyhy")
@@ -22,6 +25,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "GAME OVER!"
+label_settings = SubResource("LabelSettings_fmyhy")
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true

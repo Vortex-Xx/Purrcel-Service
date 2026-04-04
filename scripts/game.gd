@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var survival_timer = $SurvivalTimer
-@onready var time_label = $CanvasLayer/TimeLabel
+@onready var time_label = $HUD/TimeLabel
 
 func _process(_delta):
 	# time_left gives us the remaining seconds (e.g. 59.432)

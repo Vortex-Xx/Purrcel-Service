@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://dkeq56ko3wga7" path="res://assets/sprites/Tiles/GandalfHardcore City Tiles/Decoration 32x32.png" id="10_37s47"]
 [ext_resource type="Script" path="res://scenes/camera_2d.gd" id="12_ca42v"]
 [ext_resource type="AudioStream" uid="uid://buox0ai2yf5j7" path="res://assets/bransboynd-fresh-457883.mp3" id="18_ssvqc"]
+[ext_resource type="Script" uid="uid://dpjtqcjg7fvwc" path="res://scenes/time_label.gd" id="19_264po"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ir15t"]
 texture = ExtResource("4_ca42v")
@@ -8642,6 +8643,9 @@ sources/1 = SubResource("TileSetAtlasSource_wljb1")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_uwrxv"]
 distance = -85.0
 
+[sub_resource type="LabelSettings" id="LabelSettings_ssvqc"]
+font_size = 24
+
 [sub_resource type="LabelSettings" id="LabelSettings_vtaks"]
 font_size = 30
 
@@ -8722,11 +8726,40 @@ position = Vector2(-225, 92)
 script = ExtResource("7_gee14")
 direction = 1
 
-[node name="HUD" type="CanvasLayer" parent="." unique_id=747273999]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1500643025]
 visible = false
+
+[node name="SurvivalTimer" type="Timer" parent="." unique_id=764223867]
+wait_time = 30.914
+one_shot = true
+autostart = true
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1719086199]
+stream = ExtResource("18_ssvqc")
+autoplay = true
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=747273999]
 follow_viewport_enabled = true
 
+[node name="TimeLabel" type="Label" parent="HUD" unique_id=432038733]
+z_index = 27
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1382.0
+offset_top = -72.0
+offset_right = -1303.0
+offset_bottom = -38.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.023529412, 0.14117648, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "60"
+label_settings = SubResource("LabelSettings_ssvqc")
+horizontal_alignment = 1
+script = ExtResource("19_264po")
+
 [node name="ScoreLabel" type="Label" parent="HUD" unique_id=1831402370]
+visible = false
 z_index = 25
 anchors_preset = -1
 anchor_left = -0.312
@@ -8739,30 +8772,6 @@ offset_right = 54.42401
 offset_bottom = 46.488007
 text = "0"
 label_settings = SubResource("LabelSettings_vtaks")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1500643025]
-
-[node name="TimeLabel" type="Label" parent="CanvasLayer" unique_id=432038733]
-z_index = 30
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -1109.0
-offset_top = -151.0
-offset_right = -1069.0
-offset_bottom = -106.0
-grow_horizontal = 0
-theme_override_colors/font_color = Color(0.023529412, 0.14117648, 0, 1)
-theme_override_font_sizes/font_size = 16
-
-[node name="SurvivalTimer" type="Timer" parent="." unique_id=764223867]
-wait_time = 60.0
-one_shot = true
-autostart = true
-
-[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1719086199]
-stream = ExtResource("18_ssvqc")
-autoplay = true
 
 [connection signal="timeout" from="Camera2D/EnemySpawnner/Timer" to="Camera2D/EnemySpawnner" method="_on_timer_timeout"]
 [connection signal="timeout" from="SurvivalTimer" to="." method="_on_survival_timer_timeout"]
