@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://c3c4jyatvxogk"]
+
+[ext_resource type="Script" uid="uid://dqcfr3xgpdo0g" path="res://scripts/enemy_black_cat.gd" id="1_qp2f7"]
+[ext_resource type="Texture2D" uid="uid://c5nkggmgpmi88" path="res://assets/sprites/Pet Cats Pack/Cat-1/Cat-1-Run.png" id="2_qp2f7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jmwu"]
+atlas = ExtResource("2_qp2f7")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhdpi"]
+atlas = ExtResource("2_qp2f7")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umdes"]
+atlas = ExtResource("2_qp2f7")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08jbq"]
+atlas = ExtResource("2_qp2f7")
+region = Rect2(150, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tu4fi"]
+atlas = ExtResource("2_qp2f7")
+region = Rect2(200, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfim3"]
+atlas = ExtResource("2_qp2f7")
+region = Rect2(250, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_358ju"]
+atlas = ExtResource("2_qp2f7")
+region = Rect2(300, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l40c5"]
+atlas = ExtResource("2_qp2f7")
+region = Rect2(350, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sh74p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jmwu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhdpi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umdes")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08jbq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tu4fi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfim3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_358ju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l40c5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gxido"]
+size = Vector2(11, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_faoiw"]
+size = Vector2(13, 11)
+
+[node name="EnemyOrangeCat" type="CharacterBody2D" unique_id=1908608855]
+script = ExtResource("1_qp2f7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1737878831]
+sprite_frames = SubResource("SpriteFrames_sh74p")
+autoplay = "default"
+frame_progress = 0.8697431
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=249328728]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_gxido")
+
+[node name="Killzone" type="Area2D" parent="." unique_id=50232353]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=810924830]
+position = Vector2(0.5, 1.5)
+shape = SubResource("RectangleShape2D_faoiw")
+
+[connection signal="body_entered" from="Killzone" to="." method="_on_killzone_body_entered"]
