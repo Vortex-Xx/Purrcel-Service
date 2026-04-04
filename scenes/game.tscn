@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://dkeq56ko3wga7" path="res://assets/sprites/Tiles/GandalfHardcore City Tiles/Decoration 32x32.png" id="10_37s47"]
 [ext_resource type="Script" path="res://scenes/camera_2d.gd" id="12_ca42v"]
 [ext_resource type="AudioStream" uid="uid://buox0ai2yf5j7" path="res://assets/bransboynd-fresh-457883.mp3" id="18_ssvqc"]
-[ext_resource type="Script" uid="uid://dpjtqcjg7fvwc" path="res://scenes/time_label.gd" id="19_264po"]
+[ext_resource type="Script" path="res://scenes/time_label.gd" id="19_264po"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ir15t"]
 texture = ExtResource("4_ca42v")
@@ -8730,7 +8730,7 @@ direction = 1
 visible = false
 
 [node name="SurvivalTimer" type="Timer" parent="." unique_id=764223867]
-wait_time = 30.914
+wait_time = 60.0
 one_shot = true
 autostart = true
 
@@ -8752,7 +8752,7 @@ offset_right = -1303.0
 offset_bottom = -38.0
 grow_horizontal = 0
 theme_override_colors/font_color = Color(0.023529412, 0.14117648, 0, 1)
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 8
 text = "60"
 label_settings = SubResource("LabelSettings_ssvqc")
 horizontal_alignment = 1
