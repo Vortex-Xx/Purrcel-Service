@@ -3,7 +3,7 @@ extends CharacterBody2D
 var score: float = 0.0
 @onready var score_label = get_node("../HUD/ScoreLabel") # Make sure this path matches your scene!
 # Preload the UI scene so we can spawn it when the player dies
-const GAME_OVER_SCENE = preload("res://scenes/GameOver_screen.tscn")
+const GAME_OVER_SCENE = preload("res://scenes/GameOver_Screen.tscn")
 
 const SPEED = 110.0
 const JUMP_VELOCITY = -250.0
