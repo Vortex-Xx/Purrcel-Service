@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://b1v5wg4li7nsy"]
 
+[ext_resource type="Script" uid="uid://da6j8xkw02jug" path="res://scripts/game.gd" id="1_rysoc"]
 [ext_resource type="PackedScene" uid="uid://ddxy5kekuulhi" path="res://scenes/player_cat.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://cgfq1u7pq04of" path="res://assets/sprites/Tilemap/tilemap.png" id="2_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://hf5ow1ol0h0p" path="res://assets/sprites/Tiles/Background.png" id="3_ir15t"]
@@ -8645,6 +8646,7 @@ font_size = 30
 
 [node name="Game" type="Node2D" unique_id=968992039]
 position = Vector2(-148, -19)
+script = ExtResource("1_rysoc")
 
 [node name="TileMap1" type="TileMap" parent="." unique_id=2003185719]
 position = Vector2(-140, 27)
@@ -8720,6 +8722,7 @@ script = ExtResource("7_gee14")
 direction = 1
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=747273999]
+visible = false
 follow_viewport_enabled = true
 
 [node name="ScoreLabel" type="Label" parent="HUD" unique_id=1831402370]
@@ -8736,4 +8739,25 @@ offset_bottom = 46.488007
 text = "0"
 label_settings = SubResource("LabelSettings_vtaks")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1500643025]
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer" unique_id=432038733]
+z_index = 30
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1109.0
+offset_top = -151.0
+offset_right = -1069.0
+offset_bottom = -106.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.023529412, 0.14117648, 0, 1)
+theme_override_font_sizes/font_size = 16
+
+[node name="SurvivalTimer" type="Timer" parent="." unique_id=764223867]
+wait_time = 60.0
+one_shot = true
+autostart = true
+
 [connection signal="timeout" from="Camera2D/EnemySpawnner/Timer" to="Camera2D/EnemySpawnner" method="_on_timer_timeout"]
+[connection signal="timeout" from="SurvivalTimer" to="." method="_on_survival_timer_timeout"]
