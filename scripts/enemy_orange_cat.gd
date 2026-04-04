@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var sprite = $AnimatedSprite2D
 
-const SPEED = 110.0
+const SPEED = 100.0
 
 # This is the variable the spawner will change
 @export var direction: int = 1:

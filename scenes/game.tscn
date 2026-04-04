@@ -3262,7 +3262,7 @@ script = ExtResource("4_iywne")
 enemy_scenes = Array[PackedScene]([ExtResource("4_lbhrr"), ExtResource("6_u5sy4")])
 
 [node name="Timer" type="Timer" parent="Camera2D/EnemySpawnner" unique_id=1292284805]
-wait_time = 2.0
+wait_time = 1.005
 autostart = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1509176861]

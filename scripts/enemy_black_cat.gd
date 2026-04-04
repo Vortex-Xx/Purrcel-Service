@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var sprite = $AnimatedSprite2D
 
-const SPEED = 150.0
+const SPEED = 200.0
 
 # Start moving Left (-1)
 var direction: int = -1:

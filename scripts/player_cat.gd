@@ -5,7 +5,7 @@ var score: float = 0.0
 # Preload the UI scene so we can spawn it when the player dies
 const GAME_OVER_SCENE = preload("res://scenes/GameOver_screen.tscn")
 
-const SPEED = 120.0
+const SPEED = 100.0
 const JUMP_VELOCITY = -250.0
 
 func _physics_process(delta: float) -> void:
