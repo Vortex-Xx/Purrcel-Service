@@ -1,14 +1,19 @@
 extends Node2D
 
-# 1. Drag your enemy .tscn file here from the FileSystem
-@export var enemy_scene: PackedScene = preload("res://scenes/enemy_black_cat.tscn")
+# 1. This creates a list in the Inspector where you can drag multiple .tscn files
+@export var enemy_scenes: Array[PackedScene] = []
 
 func _on_timer_timeout() -> void:
-	# 2. Create a new copy of the enemy
-	var enemy_instance = enemy_scene.instantiate()
+	if enemy_scenes.size() == 0:
+		return # Don't do anything if the list is empty
 	
-	# 3. Set the enemy's starting position to the spawner's position
+	# 2. Pick a random number between 0 and the size of your list
+	var random_index = randi() % enemy_scenes.size()
+	var selected_scene = enemy_scenes[random_index]
+	
+	# 3. Create the cat copy
+	var enemy_instance = selected_scene.instantiate()
+	
+	# 4. Set position and add to scene
 	enemy_instance.global_position = global_position
-	
-	# 4. Add the enemy to the main game scene
 	get_tree().current_scene.add_child(enemy_instance)
