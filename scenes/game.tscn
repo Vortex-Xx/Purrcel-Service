@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://57lbhass1vxy" path="res://assets/sprites/Tiles/GandalfHardcore City Tiles/City background.png" id="8_1kice"]
 [ext_resource type="Texture2D" uid="uid://gyldb6qwv8cc" path="res://assets/sprites/Tiles/GandalfHardcore City Tiles/GandalfHardcore city tiles 32x32.png" id="9_5newe"]
 [ext_resource type="Texture2D" uid="uid://dkeq56ko3wga7" path="res://assets/sprites/Tiles/GandalfHardcore City Tiles/Decoration 32x32.png" id="10_37s47"]
-[ext_resource type="Script" uid="uid://bcgtgpat1hwsp" path="res://scenes/camera_2d.gd" id="12_ca42v"]
+[ext_resource type="Script" path="res://scenes/camera_2d.gd" id="12_ca42v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ir15t"]
 texture = ExtResource("4_ca42v")
@@ -8702,7 +8702,7 @@ script = ExtResource("4_iywne")
 enemy_scenes = Array[PackedScene]([ExtResource("4_lbhrr"), ExtResource("6_u5sy4")])
 
 [node name="Timer" type="Timer" parent="Camera2D/EnemySpawnner" unique_id=1292284805]
-wait_time = 1.005
+wait_time = 0.769
 autostart = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1509176861]
