@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Purrcel Service"
-run/main_scene="uid://b1v5wg4li7nsy"
+run/main_scene="uid://32vhtujmom3c"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
