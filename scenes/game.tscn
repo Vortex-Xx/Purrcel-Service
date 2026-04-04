@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://gyldb6qwv8cc" path="res://assets/sprites/Tiles/GandalfHardcore City Tiles/GandalfHardcore city tiles 32x32.png" id="9_5newe"]
 [ext_resource type="Texture2D" uid="uid://dkeq56ko3wga7" path="res://assets/sprites/Tiles/GandalfHardcore City Tiles/Decoration 32x32.png" id="10_37s47"]
 [ext_resource type="Script" path="res://scenes/camera_2d.gd" id="12_ca42v"]
+[ext_resource type="AudioStream" uid="uid://buox0ai2yf5j7" path="res://assets/bransboynd-fresh-457883.mp3" id="18_ssvqc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ir15t"]
 texture = ExtResource("4_ca42v")
@@ -8758,6 +8759,10 @@ theme_override_font_sizes/font_size = 16
 wait_time = 60.0
 one_shot = true
 autostart = true
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1719086199]
+stream = ExtResource("18_ssvqc")
+autoplay = true
 
 [connection signal="timeout" from="Camera2D/EnemySpawnner/Timer" to="Camera2D/EnemySpawnner" method="_on_timer_timeout"]
 [connection signal="timeout" from="SurvivalTimer" to="." method="_on_survival_timer_timeout"]
