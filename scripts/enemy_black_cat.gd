@@ -24,6 +24,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y += gravity * delta
 
 	# Detect wall and reverse direction
+	
 	if is_on_wall():
 		direction *= -1
 

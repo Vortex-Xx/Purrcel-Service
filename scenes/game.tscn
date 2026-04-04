@@ -5,9 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://bxaw365yat7kx" path="res://assets/sprites/Tilemap/tilemap_packed.png" id="3_lbhrr"]
 [ext_resource type="Script" uid="uid://cd1dohq1dhy25" path="res://scripts/enemy_spawnner.gd" id="4_iywne"]
 [ext_resource type="PackedScene" uid="uid://b2busl0ue22p" path="res://scenes/enemy_black_cat.tscn" id="4_lbhrr"]
-[ext_resource type="Script" uid="uid://cp251rd0pgmq6" path="res://scenes/enemy_spawnner_2.gd" id="5_gee14"]
+[ext_resource type="Script" uid="uid://cp251rd0pgmq6" path="res://scripts/enemy_spawnner_2.gd" id="5_gee14"]
 [ext_resource type="PackedScene" uid="uid://c3c4jyatvxogk" path="res://scenes/enemy_orange_cat.tscn" id="6_u5sy4"]
-[ext_resource type="Script" uid="uid://bi57smu0jhpkw" path="res://scenes/enemy_orange_cat.gd" id="7_gee14"]
+[ext_resource type="Script" uid="uid://bi57smu0jhpkw" path="res://scripts/enemy_orange_cat.gd" id="7_gee14"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iywne"]
 texture = ExtResource("2_lnu2h")
@@ -3246,7 +3246,7 @@ tile_set = SubResource("TileSet_0tnpc")
 
 [node name="PlayerCat" parent="." unique_id=1042833716 instance=ExtResource("1_uwrxv")]
 z_index = 2
-position = Vector2(-139, 110)
+position = Vector2(-26, 101)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1643363330]
 position = Vector2(0, 0.765)
@@ -3254,7 +3254,7 @@ scale = Vector2(20.35, 20.35)
 zoom = Vector2(2.41, 2.41)
 
 [node name="EnemySpawnner" type="Node2D" parent="Camera2D" unique_id=2003118687]
-position = Vector2(21.27764, 5.023833)
+position = Vector2(23.488943, 4.483292)
 scale = Vector2(0.049140047, 0.049140047)
 script = ExtResource("4_iywne")
 
@@ -3263,7 +3263,7 @@ wait_time = 2.0
 autostart = true
 
 [node name="EnemySpawnner2" type="Node2D" parent="Camera2D" unique_id=260414812]
-position = Vector2(14.791155, 4.532432)
+position = Vector2(18.525799, -1.5117935)
 scale = Vector2(0.049140047, 0.049140047)
 script = ExtResource("5_gee14")
 
@@ -3281,7 +3281,7 @@ shape = SubResource("WorldBoundaryShape2D_uwrxv")
 position = Vector2(228, 105)
 
 [node name="EnemyOrangeCat" parent="." unique_id=781267597 instance=ExtResource("6_u5sy4")]
-position = Vector2(126, 93)
+position = Vector2(-225, 92)
 script = ExtResource("7_gee14")
 
 [connection signal="timeout" from="Camera2D/EnemySpawnner/Timer" to="Camera2D/EnemySpawnner" method="_on_timer_timeout"]

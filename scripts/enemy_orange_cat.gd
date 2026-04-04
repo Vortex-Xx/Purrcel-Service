@@ -4,8 +4,8 @@ extends CharacterBody2D
 
 const SPEED = 120.0
 
-# Start moving Left (-1)
-var direction: int = -1:
+# Start moving Right (1)
+var direction: int = 1:
 	set(value):
 		direction = value
 		if sprite:
@@ -17,13 +17,14 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	# Initial direction
-	direction = -1
+	direction = 1
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
 	# Detect wall and reverse direction
+	
 	if is_on_wall():
 		direction *= -1
 
