@@ -7,7 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://b2busl0ue22p" path="res://scenes/enemy_black_cat.tscn" id="4_lbhrr"]
 [ext_resource type="Script" uid="uid://cp251rd0pgmq6" path="res://scripts/enemy_spawnner_2.gd" id="5_gee14"]
 [ext_resource type="PackedScene" uid="uid://c3c4jyatvxogk" path="res://scenes/enemy_orange_cat.tscn" id="6_u5sy4"]
+[ext_resource type="Script" uid="uid://dqcfr3xgpdo0g" path="res://scripts/enemy_black_cat.gd" id="6_vtaks"]
 [ext_resource type="Script" uid="uid://bi57smu0jhpkw" path="res://scripts/enemy_orange_cat.gd" id="7_gee14"]
+[ext_resource type="Texture2D" uid="uid://c5nkggmgpmi88" path="res://assets/sprites/Pet Cats Pack/Cat-1/Cat-1-Run.png" id="7_kvpfn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iywne"]
 texture = ExtResource("2_lnu2h")
@@ -3223,8 +3225,96 @@ texture = ExtResource("3_lbhrr")
 [sub_resource type="TileSet" id="TileSet_0tnpc"]
 sources/0 = SubResource("TileSetAtlasSource_gee14")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jmwu"]
+atlas = ExtResource("7_kvpfn")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhdpi"]
+atlas = ExtResource("7_kvpfn")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umdes"]
+atlas = ExtResource("7_kvpfn")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08jbq"]
+atlas = ExtResource("7_kvpfn")
+region = Rect2(150, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tu4fi"]
+atlas = ExtResource("7_kvpfn")
+region = Rect2(200, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfim3"]
+atlas = ExtResource("7_kvpfn")
+region = Rect2(250, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_358ju"]
+atlas = ExtResource("7_kvpfn")
+region = Rect2(300, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l40c5"]
+atlas = ExtResource("7_kvpfn")
+region = Rect2(350, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sh74p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jmwu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhdpi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umdes")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08jbq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tu4fi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfim3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_358ju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l40c5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gxido"]
+size = Vector2(11, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_faoiw"]
+size = Vector2(13, 11)
+
+[sub_resource type="PackedScene" id="PackedScene_dinhu"]
+_bundled = {
+"conn_count": 1,
+"conns": PackedInt32Array(3, 0, 15, 14, 2, 0, 0),
+"editable_instances": [],
+"id_paths": [],
+"names": PackedStringArray("EnemyOrangeCat", "script", "CharacterBody2D", "AnimatedSprite2D", "sprite_frames", "autoplay", "frame_progress", "CollisionShape2D", "position", "shape", "Killzone", "collision_layer", "collision_mask", "Area2D", "_on_killzone_body_entered", "body_entered"),
+"node_count": 5,
+"node_ids": PackedInt32Array(1908608855, 1737878831, 249328728, 50232353, 810924830),
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 2, 0, -1, 1, 1, 0, 0, 0, 0, 3, 3, -1, 3, 4, 1, 5, 2, 6, 3, 0, 0, 0, 7, 7, -1, 2, 8, 4, 9, 5, 0, 0, 0, 13, 10, -1, 2, 11, 6, 12, 7, 0, 3, 0, 7, 7, -1, 2, 8, 8, 9, 9, 0),
+"variants": [ExtResource("6_vtaks"), SubResource("SpriteFrames_sh74p"), "default", 0.8697431, Vector2(0, 2), SubResource("RectangleShape2D_gxido"), 0, 2, Vector2(0.5, 1.5), SubResource("RectangleShape2D_faoiw")],
+"version": 3
+}
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_uwrxv"]
 distance = -85.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_vtaks"]
+font_size = 30
 
 [node name="Game" type="Node2D" unique_id=968992039]
 position = Vector2(-148, -19)
@@ -3263,9 +3353,10 @@ wait_time = 2.0
 autostart = true
 
 [node name="EnemySpawnner2" type="Node2D" parent="Camera2D" unique_id=260414812]
-position = Vector2(18.525799, -1.5117935)
+position = Vector2(15.675674, -1.4626535)
 scale = Vector2(0.049140047, 0.049140047)
 script = ExtResource("5_gee14")
+enemy_scene = SubResource("PackedScene_dinhu")
 
 [node name="Timer" type="Timer" parent="Camera2D/EnemySpawnner2" unique_id=723795643]
 wait_time = 2.0
@@ -3283,6 +3374,24 @@ position = Vector2(228, 105)
 [node name="EnemyOrangeCat" parent="." unique_id=781267597 instance=ExtResource("6_u5sy4")]
 position = Vector2(-225, 92)
 script = ExtResource("7_gee14")
+direction = 1
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=747273999]
+follow_viewport_enabled = true
+
+[node name="ScoreLabel" type="Label" parent="HUD" unique_id=1831402370]
+z_index = 25
+anchors_preset = -1
+anchor_left = -0.22700001
+anchor_top = -0.162
+anchor_right = -0.22700001
+anchor_bottom = -0.162
+offset_left = -8.495972
+offset_top = -10.024002
+offset_right = 53.50403
+offset_bottom = 44.975998
+text = "0"
+label_settings = SubResource("LabelSettings_vtaks")
 
 [connection signal="timeout" from="Camera2D/EnemySpawnner/Timer" to="Camera2D/EnemySpawnner" method="_on_timer_timeout"]
 [connection signal="timeout" from="Camera2D/EnemySpawnner2/Timer" to="Camera2D/EnemySpawnner2" method="_on_timer_timeout"]

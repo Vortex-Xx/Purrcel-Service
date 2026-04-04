@@ -1,15 +1,27 @@
 extends CharacterBody2D
-
+# 1. Add these variables at the top
+var score: float = 0.0
+@onready var score_label = get_node("../HUD/ScoreLabel") # Make sure this path matches your scene!
 # Preload the UI scene so we can spawn it when the player dies
 const GAME_OVER_SCENE = preload("res://scenes/GameOver_screen.tscn")
 
 const SPEED = 120.0
 const JUMP_VELOCITY = -250.0
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	score += 10 * delta
+	if score_label:
+			score_label.text = str(floor(score))
+	else:
+		# If you see this in the output, the code can't find your Label!
+		print("ScoreLabel not found!")
 	# 1. Add the gravity
 	if not is_on_floor():
-		velocity += get_gravity() * _delta
+		velocity += get_gravity() * delta
+		if score_label:
+			score_label.text = str(floor(score))
+		
+	
 
 	# 2. Handle jump
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
